@@ -9,7 +9,7 @@ use Validator;
 
 class CountryController extends Controller
 {
-    public function countries()
+    public function country()
     {
         return response()->json(CountryModel::get(), 200);
     }
