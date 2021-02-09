@@ -8,3 +8,8 @@ setup:
 
 test:
 	php artisan test
+
+migrate:
+	php artisan migrate
+seed:
+	php artisan db:seed
