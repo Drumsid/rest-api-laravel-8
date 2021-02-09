@@ -19,8 +19,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('country', [CountryController::class, 'country']);
-Route::get('country/{id}', [CountryController::class, 'show']);
-Route::post('country/', [CountryController::class, 'create']);
-Route::put('country/{id}', [CountryController::class, 'edit']);
-Route::delete('country/{id}', [CountryController::class, 'destroy']);
+// еще бы добавить where для id
+Route::prefix('/country')->group(function () {
+    Route::get('/', [CountryController::class, 'country']);
+    Route::get('/{id}', [CountryController::class, 'show']);
+    Route::post('/', [CountryController::class, 'create']);
+    Route::put('/{id}', [CountryController::class, 'edit']);
+    Route::delete('/{id}', [CountryController::class, 'destroy']);
+});
+
